@@ -1,11 +1,10 @@
-#!/usr/bin/python
+#! /usr/bin/python3
 
 import os
 import sys
 import platform
 
-class main:
-    
+def main():
     sistemaOperativo = ""
     
     #Limpiamos pantalla
@@ -39,9 +38,9 @@ class main:
             print("3. Salir")
             so = int(input())
             if so == 1:
-                hora = input("Apagar sistema en X horas... \n")
+                hora = int(input("Selecciona en cuantas horas se apagará el PC: \n"))
                 hora = hora * 3600
-                os.system("shutdown -s -t " + str(hora))
+                os.system("shutdown -s -t {0}".format(hora))
             elif so == 2:
                 os.system("shutdown -a")
             elif so == 3:
@@ -56,9 +55,9 @@ class main:
             print("3. Salir")
             so = int(input())
             if so == 1:
-                hora = input("Apagar sistema en X horas... \n")
+                hora = int(input("Selecciona en cuantas horas se apagará el PC: \n"))
                 hora = hora * 60
-                os.system("sudo shutdown -h " + str(hora))
+                os.system("sudo shutdown -h {0}".format(hora))
             elif so == 2:
                 os.system("sudo shutdown -c")
             elif so == 3:
@@ -68,4 +67,6 @@ class main:
                 
     else:
         print("No hemos encontrado tu sistema operativo.")
-        
+
+if __name__ == '__main__':
+    main()
